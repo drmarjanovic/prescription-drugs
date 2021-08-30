@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.github.markaya.app.grpc;
+
+service DrugService {
+    rpc hasDrug (HasDrugRequest) returns (HasDrugResponse);
+}
+
+message HasDrugRequest {
+    int64 id = 1;
+    int32 quantity = 2;
+}
+
+message HasDrugResponse {
+    bool has_drug = 1;
+}
