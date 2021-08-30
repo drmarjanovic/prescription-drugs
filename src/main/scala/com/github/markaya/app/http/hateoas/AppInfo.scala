@@ -1,4 +1,4 @@
-package com.github.markaya.app.http
+package com.github.markaya.app.http.hateoas
 
 import com.github.markaya.app.BuildInfo
 import zio.json._
