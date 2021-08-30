@@ -16,12 +16,12 @@ final case class Routes(config: AppConfig) {
   private val sftp = new Sftp(config.sftp)
 
   private val routes: HttpApp[Blocking, IOException] = HttpApp.collect {
-    case Method.GET -> Root / "health"                     =>
+    case Method.GET -> Root / "health"                       =>
       Response.jsonString(AppInfo.up.toJsonPretty)
-    case Method.GET -> Root / "api" / "prescriptions" / id =>
-      val content = HttpData.fromStream(sftp.read(id))
-      Response.http(content = content)
-    case _ -> path                                         =>
+    case Method.GET -> Root / "api" / "prescriptions" / name =>
+      val content = HttpData.fromStream(sftp.read(name))
+      Responses.file(name, content)
+    case _ -> path                                           =>
       Responses.notFound(
         title = "Page not found",
         detail = s"The requested URL $path was not found on this server. That's all we know."
