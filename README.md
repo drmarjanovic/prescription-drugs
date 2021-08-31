@@ -2,7 +2,7 @@
 
 Manages drugs both through GRPC service. Also, supports prescription retrieving using HTTP and SFTP.
 
-### Running:
+### Running
 
 Application has following environment variables:
 

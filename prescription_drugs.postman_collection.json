@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "22dba6c6-bd55-469c-90a3-c6e4f8a3e0d7",
+		"name": "Prescription Drugs",
+		"description": "Provides documentation about HTTP Prescription Drugs service routes.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Service is up and running\", function () {",
+							"    const res = pm.response.json();",
+							"",
+							"    pm.response.to.have.status(200);",
+							"    pm.expect(res.name).to.eql('prescription-drugs');",
+							"    pm.expect(res.status).to.eql('up');",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{host}}:{{port}}/health",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Download a prescription",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{host}}:{{port}}/api/prescriptions/:name",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"prescriptions",
+						":name"
+					],
+					"variable": [
+						{
+							"key": "name",
+							"value": "Prescription name.",
+							"description": "Name of the prescription to download."
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Download `example.txt` prescription",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/prescriptions/example.txt",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"prescriptions",
+								"example.txt"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}
