@@ -25,7 +25,7 @@ object DrugService extends ZDrugService[ZEnv, Any] {
     val hasDrug = drugs
       .find(d => d.id == request.id && d.quantity >= request.quantity)
       .fold(false) { d =>
-        drugs.update(drugs.indexOf(d), d.copy(d.quantity - request.quantity))
+        drugs.update(drugs.indexOf(d), d.copy(quantity = d.quantity - request.quantity))
         true
       }
 
