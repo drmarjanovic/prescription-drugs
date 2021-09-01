@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Aspirin",
+    "quantity": 21
+  },
+  {
+    "id": 2,
+    "name": "Caffetin",
+    "quantity": 23
+  },
+  {
+    "id": 3,
+    "name": "Paracetamol",
+    "quantity": 15
+  },
+  {
+    "id": 4,
+    "name": "Andol",
+    "quantity": 20
+  },
+  {
+    "id": 5,
+    "name": "Bromazepam",
+    "quantity": 10
+  },
+  {
+    "id": 6,
+    "name": "Bensedin",
+    "quantity": 4
+  },
+  {
+    "id": 7,
+    "name": "Diazepam",
+    "quantity": 22
+  },
+  {
+    "id": 8,
+    "name": "Deca-Durabolin",
+    "quantity": 1
+  }
+]
