@@ -18,7 +18,18 @@ Application has following environment variables:
 To setup environment variables in the application, please provide `.env` file in the root of the project.
 
 After configuring environment variables application can be started via command:
-```console
+```bash
 sbt run
 ```
 
+### Building and running a Docker image
+
+Building a Docker image is automated through the shell script:
+```bash
+./ci.sh
+```
+
+In order to start a container use a following command:
+```bash
+docker run -p 8080:8080 --env-file .env prescription-drugs:latest
+```

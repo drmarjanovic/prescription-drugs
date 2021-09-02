@@ -4,6 +4,7 @@ lazy val info = List(
   name := "prescription-drugs",
   description := "Manages prescription drugs both through GRPC and HTTP API. Also, supports prescription retrieving using SFTP.",
   organization := "com.github.markaya",
+  maintainer := "markoristic15@gmail.com",
   version := "0.0.1"
 )
 
@@ -22,7 +23,7 @@ lazy val protoSettings = List(
 )
 
 lazy val root = (project in file("."))
-  .enablePlugins(BuildInfoPlugin)
+  .enablePlugins(BuildInfoPlugin, JavaAppPackaging)
   .settings(info: _*)
   .settings(buildInfoSettings: _*)
   .settings(protoSettings: _*)

@@ -1,6 +1,8 @@
 target/
+docker/prescription-drugs
+.bsp/
 
 *.class
 *.log
 
-.env
+.env*
