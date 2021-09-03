@@ -19,8 +19,7 @@ object Main extends ServerMain {
     val status = getConfig[AppConfig].flatMap { config =>
       val http = Routes(config)
 
-      myAppLogic
-      http.server
+      http.server.fork *> myAppLogic.fork *> ZIO.never
     }.provideCustomLayer(configLayer)
 
     status.exitCode

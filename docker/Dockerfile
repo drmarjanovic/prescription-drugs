@@ -1,6 +1,6 @@
 FROM anapsix/alpine-java:8_server-jre
 
-EXPOSE 8080
+EXPOSE 8080 9000
 WORKDIR /opt
 
 COPY ./docker-entrypoint.sh /usr/local/bin/

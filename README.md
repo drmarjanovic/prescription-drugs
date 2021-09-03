@@ -10,7 +10,6 @@ Application has following environment variables:
 
 | Variable      | Description                                       | Required | Default |
 |---------------|---------------------------------------------------|----------|---------|
-| GRPC_PORT     | Port of the GRPC service is listening on.         | NO       | 9000    |
 | HTTP_PORT     | Port of the HTTP service is listening on.         | NO       | 8080    |
 | SFTP_HOST     | Host of the SFTP server.                          | YES      | /       |
 | SFTP_PORT     | Port of the SFTP server.                          | NO       | 22      |
@@ -51,7 +50,9 @@ Building a Docker image is automated through the shell script:
 
 In order to start a container use a following command:
 ```bash
-docker run -p 8080:8080 --env-file .env prescription-drugs:latest
+docker run -p 8080:8080 -p 9000:9000 --env-file .env prescription-drugs:latest
 ```
+
+_**Note:** It's recommended to use 8080 for an HTTP port._
 
 [scala-version-badge]: https://img.shields.io/badge/scala-2.13.6-red?logo=scala&color=red
